@@ -1,0 +1,10 @@
+{% for post in latest_posts %}
+    <a href="{{ post.get_absolute_url }}" class="h-entry {% if position == 'horizontal' %}mb-30 v-height{% else %}img-5 h-100 {% endif %} gradient">
+
+        <div class="featured-img" style="background-image: url('{{ post.image.url }}');"></div>
+        <img src="{{ post.image.url }}">
+        <div class="text">
+            <span class="date">{{ post.created }}</span>
+        </div>
+    </a>
+{% endfor %}

@@ -1,0 +1,37 @@
+{% for v_item in vertical_item %}
+    <div class="col-md-5 order-md-2">
+        <a href="{{ v_item.get_absolute_url }}" class="hentry img-1 h-100 gradient">
+            <div class="featured-img" style="background-image: url('{{ v_item.image.url }}');"></div>
+            <div class="text">
+                <span>{{ v_item.created }}</span>
+                <h2>{{ v_item.title }}</h2>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+
+    <div class="col-md-7">
+    {% for h_item in horizontal_item %}
+        <a href="single.html" class="hentry img-2 v-height mb30 gradient">
+            <div class="featured-img" style="background-image: url('{{ h_item.image.url }}');"></div>
+            <div class="text text-sm">
+                <span>{{ h_item.created }}</span>
+                <h2>{{ h_item.title }}</h2>
+            </div>
+        </a>
+    {% endfor %}
+
+        <div class="two-col d-block d-md-flex justify-content-between">
+            {% for t_c in two_col %}
+                <a href="{{ t_c.get_absolute_url }}" class="hentry v-height img-2 gradient">
+                    <div class="featured-img" style="background-image: url('{{ t_c.image.url }}');"></div>
+                    <div class="text text-sm">
+                        <span>{{ t_c.created }}</span>
+                        <h2>{{ t_c.title }}</h2>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+    </div>

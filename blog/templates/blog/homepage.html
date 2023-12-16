@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tags %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+    <!-- Start retroy layout blog posts -->
+	<section class="section bg-light">
+		<div class="container">
+			<div class="row align-items-stretch retro-layout">
+				<div class="col-md-4">
+                    {% show_latest_posts_by_cat count=2 category='business' position='horizontal' %}
+				</div>
+				<div class="col-md-4">
+					{% show_latest_posts_by_cat count=1 category='sport' position='vertical' %}
+				</div>
+				<div class="col-md-4">
+			        {% show_latest_posts_by_cat count=2 category='programming' %}
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End retroy layout blog posts -->
+
+    <!-- Start posts-entry -->
+	<section class="section posts-entry">
+		<div class="container">
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h2 class="posts-entry-title">Business</h2>
+				</div>
+				<div class="col-sm-6 text-sm-end"><a href="./category/business" class="read-more">View All</a></div>
+			</div>
+			{% show_latest_posts_by_cat_2_3 category='business' %}
+		</div>
+	</section>
+	<!-- End posts-entry -->
+
+    	<!-- Start posts-entry -->
+	<section class="section posts-entry posts-entry-sm bg-light">
+		<div class="container">
+			<div class="row">
+				{% latest_posts_4_row %}
+			</div>
+		</div>
+	</section>
+	<!-- End posts-entry -->
+
+    	<!-- Start posts-entry -->
+	<section class="section posts-entry">
+		<div class="container">
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h2 class="posts-entry-title">Programming</h2>
+				</div>
+				<div class="col-sm-6 text-sm-end"><a href="./category/programming" class="read-more">View All</a></div>
+			</div>
+			{% show_latest_posts_by_cat_2_3 category='programming' position='left' %}
+		</div>
+	</section>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Sport</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="./category/sport" class="read-more">View All</a></div>
+            </div>
+
+            <div class="row">
+                {% show_latest_posts_by_cat_3_row category='sport' %}
+            </div>
+
+        </div>
+    </section>
+
+    <div class="section bg-light">
+        <div class="container">
+
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Travel</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="./category/sport" class="read-more">View All</a></div>
+            </div>
+
+            <div class="row align-items-stretch retro-layout-alt">
+
+                {% latest_posts_by_cat_masonry category='sport' %}
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+

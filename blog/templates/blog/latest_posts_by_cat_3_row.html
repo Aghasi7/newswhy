@@ -1,0 +1,17 @@
+{% for post in latest_posts %}
+    <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+            <a href="{{ post.get_absolute_url }}" class="img-link"><img src="{{ post.image.url }}" alt="Image" class="img-fluid"></a>
+            <div class="excerpt">
+
+                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                <div class="post-meta align-items-center text-left clearfix">
+                    <span>{{ post.created }}</span>
+                </div>
+
+                <p>{{ post.content|safe|linebreaks|truncatewords:20 }}</p>
+                <p><a href="{{ post.get_absolute_url }}" class="read-more">Continue Reading</a></p>
+            </div>
+        </div>
+    </div>
+{% endfor %}

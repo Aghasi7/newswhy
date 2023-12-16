@@ -1,0 +1,9 @@
+<h2>Add a new comment</h2>
+
+<div class="comment-form-wrap pt-5">
+    <form action="{% url "blog:post_comment" post.id %}" method="post" class="p-5 bg-light">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Add comment" class="btn btn-primary"></p>
+    </form>
+</div>
